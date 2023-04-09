@@ -1,0 +1,45 @@
+@import "../../../variables";
+
+
+.bottom {
+  padding: 15px 0;
+  border-bottom: 1px solid #E4E4E4;
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .list {
+      display: flex;
+      align-items: center;
+      column-gap: 20px;
+      .link {
+        color: inherit;
+      }
+    }
+    .management {
+      display: flex;
+      align-items: center;
+      .btn {
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        width: 150px;
+        color: #fff;
+        background-color: $mine-shaft;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .support {
+        margin: 0 0 0 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 2px;
+        cursor: pointer;
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
