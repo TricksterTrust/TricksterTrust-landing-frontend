@@ -78,6 +78,24 @@ code {
 .icon-menu {
   display: none;
 }
+.btn {
+  width: 180px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  text-align: center;
+  background-color: $coral;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #FF7F50;
+  }
+  &:active {
+    background-color: #F1602A;
+  }
+}
 
 .hero {
   padding: 60px 0;
@@ -91,12 +109,12 @@ code {
       h1 {
         font-weight: 700;
         font-size: 50px;
-        line-height: (60 / 50) * 100%;
+        line-height: calc((60 / 50) * 100%);
         margin: 0 0 15px 0;
       }
       p {
         margin: 0 0 20px 0;
-        line-height: (20 / 14) * 100%;
+        line-height: calc((20 / 14) * 100%);
       }
       .btn {
         width: 250px;
@@ -120,7 +138,7 @@ code {
     .image {
       width: 370px;
       overflow: hidden;
-      box-shadow: 0px 4px 18px 0px #00000080;
+      box-shadow: 0 4px 18px 0 #00000080;
       border-radius: 20px;
       img {
         width: 100%;
@@ -201,7 +219,7 @@ code {
         }
         h4 {
           font-size: 25px;
-          line-height: (30 / 24) * 100%;
+          line-height: calc((30 / 24) * 100%);
           font-weight: 700;
           max-width: 290px;
           margin: 0 0 20px 0;
@@ -285,6 +303,265 @@ code {
   }
 }
 
+.search {
+  background-color: $gum-leaf;
+  padding: 45px 0;
+  .searchContainer {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 15px;
+    h3 {
+      font-size: 30px;
+      font-weight: 600;
+      text-align: center;
+      margin: 0 0 20px 0;
+    }
+   .info   {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     column-gap: 20px;
+     row-gap: 15px;
+     input {
+       background-color: #fff;
+       height: 40px;
+       line-height: 40px;
+       padding: 0 15px;
+       border-radius: 10px;
+       box-shadow: 0 4px 8px 0 #0000000D;
+       width: 100%;
+     }
+   }
+  }
+  @media (max-width: 480px) {
+    padding: 30px 0;
+    .searchContainer {
+      h3 {
+        font-size: 25px;
+        margin: 0 0 15px 0;
+      }
+      .info {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.bankYear {
+  padding: 50px 0;
+  .content {
+    background-color: $dew;
+    border-radius: 30px;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 40px;
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 500px;
+      h3 {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: calc((30 / 24) * 100%);
+        margin: 0 0 10px 0;
+      }
+      p {
+        margin: 0 0 20px 0;
+        line-height: calc((20 / 14) * 100%);
+      }
+    }
+    .image {
+      position: relative;
+      bottom: -20px;
+      right: 0;
+      width: 480px;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  @media (max-width: 1020px) {
+    .content {
+      padding: 40px 30px;
+      justify-content: center;
+      .info {
+        max-width: 650px;
+        align-items: center;
+        text-align: center;
+      }
+      .image {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    padding: 30px 0;
+    .content {
+      padding: 30px;
+    }
+  }
+}
+
+.converter {
+  padding: 0 0 50px 0;
+  .content {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 30px;
+    background-color: $granny-apple;
+    h3 {
+      font-size: 30px;
+      font-weight: 700;
+      margin: 0 0 15px 0;
+    }
+    p {
+      font-size: 18px;
+      margin: 0 0 40px 0;
+    }
+    .body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 20px;
+      .item {
+        width: 100%;
+        .dropdown {
+          background-color: #fff;
+          border-radius: 5px;
+          height: 35px;
+          line-height: 35px;
+          text-align: center;
+          margin: 0 0 20px 0;
+          .dropdownSelected {
+            position: relative;
+            cursor: pointer;
+            span {
+              font-size: 18px;
+            }
+            .arrow {
+              position: absolute;
+              top: 0;
+              right: 20px;
+            }
+          }
+        }
+        .itemBody {
+          background-color: #fff;
+          padding: 30px;
+          border-radius: 10px;
+          .amount {
+            font-weight: 700;
+            font-size: 30px;
+            margin: 0 0 30px 0;
+          }
+          .amountTransfer {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  .top {
+    background-color: $titan-white;
+    padding: 20px 0;
+    .topContent {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .topLogo {
+        display: flex;
+        align-items: center;
+        h4 {
+          margin: 0 0 0 10px;
+          font-weight: 700;
+          font-size: 20px;
+        }
+      }
+      .topContacts {
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+        margin: 0 0 0 15px;
+        a {
+          color: inherit;
+          font-size: 20px;
+          font-weight: 600;
+          margin: 0 0 5px 0;
+        }
+        span {
+          font-size: 12px;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  .menu {
+    padding: 35px 0;
+    .menuContent {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      .list {
+        li {
+          height: 20px;
+          &:not(:last-child) {
+            margin: 0 0 20px 0;
+          }
+        }
+        .link {
+          font-size: 12px;
+          color: inherit;
+        }
+      }
+    }
+  }
+  .bottom {
+    background-color: $titan-white;
+    padding: 20px 0;
+    .bottomContent {
+      p {
+        font-size: 12px;
+        &:not(:last-child) {
+          margin: 0 0 15px 0;
+        }
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    .menu {
+      padding: 20px 0;
+      .menuContent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+    }
+    .top {
+      .topContent {
+        .topLogo {
+          .logoIcons {
+            width: 22px;
+          }
+          h4 {
+            font-size: 16px;
+          }
+        }
+        .topContacts {
+          a {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
 @media (max-width: 992px) {
   .icon-menu {
     display: block;
