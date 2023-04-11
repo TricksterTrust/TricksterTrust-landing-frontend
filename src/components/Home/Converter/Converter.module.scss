@@ -1,0 +1,96 @@
+@import "../../../variables.scss";
+
+.converter {
+  padding: 25px 10px 25px 10px;
+  .content {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 30px;
+    background-color: $granny-apple;
+    h3 {
+      font-size: 30px;
+      font-weight: 700;
+      margin: 0 0 15px 0;
+    }
+    p {
+      font-size: 18px;
+      margin: 0 0 40px 0;
+    }
+    .body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 20px;
+      row-gap: 15px;
+      .item {
+        width: 100%;
+        .dropdown {
+          background-color: #fff;
+          border-radius: 5px;
+          height: 35px;
+          line-height: 35px;
+          text-align: center;
+          margin: 0 0 20px 0;
+          .dropdownSelected {
+            position: relative;
+            cursor: pointer;
+            span {
+              font-size: 18px;
+            }
+            .arrow {
+              position: absolute;
+              top: 0;
+              right: 20px;
+            }
+          }
+        }
+        .itemBody {
+          background-color: #fff;
+          padding: 30px;
+          border-radius: 10px;
+          .amount {
+            font-weight: 700;
+            font-size: 30px;
+            margin: 0 0 30px 0;
+          }
+          .amountTransfer {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .content {
+      padding: 30px;
+      .body {
+        flex-direction: column;
+      }
+      .arrowsHorison {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    padding: 15px 10px 15px 10px;
+    .content {
+      h3 {
+        font-size: 24px;
+      }
+      p {
+        margin: 0 0 30px 0;
+      }
+      .body {
+        .item {
+          .itemBody {
+            .amount {
+              font-size: 24px;
+              margin: 0 0 12px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

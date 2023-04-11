@@ -10,6 +10,7 @@
     .logo {
       display: flex;
       align-items: center;
+      user-select: none;
       h4 {
         margin: 0 0 0 10px;
         font-size: 20px;
