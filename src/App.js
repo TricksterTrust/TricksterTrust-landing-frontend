@@ -1,47 +1,23 @@
 import Header from "./components/Header/Header";
 import Home from "./Pages/Home";
 import Footer from "./components/Footer/Footer";
-import {Cross} from "./assets/Cross";
+import Stock from "./components/Stock/Stock";
+import {useState} from "react";
 
 function App() {
+  const [stockOpened, setStockOpened] = useState(true)
+  
+  
+  let today = new Date();
+  let day = String(today.getDate()).padStart(2, '0');
+  let month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  let year = today.getFullYear();
+
+  // today = day + '/' + month + '/' + year;
+  // console.log(today.getFullYear())
   return (
     <div className="wrapper">
-      <div className="stock">
-        <div className="container">
-          <div className="content">
-            <h4>Успейте на открытие и получите год бесплатного обслуживания!</h4>
-            <div className="timer">
-              <span>Осталось</span>
-              <div className="body">
-                <div className="cells">
-                  <div className="cell">0</div>
-                  <div className="cell">5</div>
-                  <div className="cell">7</div>
-                </div>
-                <span>Дней</span>
-                <div className="cells">
-                  <div className="cell">1</div>
-                  <div className="cell">2</div>
-                </div>
-                <span className="colon">:</span>
-                <div className="cells">
-                  <div className="cell">4</div>
-                  <div className="cell">9</div>
-                </div>
-                <span className="colon">:</span>
-                <div className="cells">
-                  <div className="cell">3</div>
-                  <div className="cell">2</div>
-                </div>
-              </div>
-            </div>
-            <div className="btnStock">Оформить карту</div>
-            <div className="close">
-              <Cross/>
-            </div>
-          </div>
-        </div>
-      </div>
+      {stockOpened && <Stock setStockOpened={setStockOpened}/>}
       <Header/>
       <Home/>
       <Footer/>
