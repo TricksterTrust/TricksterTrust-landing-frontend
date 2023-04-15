@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./Converter.module.scss"
 import {ArrowsHorison} from "../../../assets/ArrowsHorison";
 import Item from "./Item/Item";
@@ -18,7 +18,7 @@ const Converter = () => {
 	useEffect(() => {
 		(async function() {
 			try {
-				await axios.get('https://api.trickstertrust.ru/api/v1/currencies/currency_rates/')
+				await axios.get('https://api.trickstertrust.ru/v1/currencies/currency_rates/')
 					.then(resp => {
 						setCurrencyRates(resp.data)
 					})
@@ -37,7 +37,7 @@ const Converter = () => {
 			data.append('from_code', fromCode);
 			data.append('value', value);
 			
-			axios.post('https://api.trickstertrust.ru/api/v1/currencies/exchange/', data)
+			axios.post('https://api.trickstertrust.ru/v1/currencies/exchange/', data)
 				.then(resp => setPrice(resp.data.value.toFixed(resp.data.value >= 0.99 ? 2 : 6)))
 				.catch(error => console.log(error));
 		}

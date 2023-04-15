@@ -1,6 +1,9 @@
 .stock {
   background: linear-gradient(91.94deg, #CBE1EC 2.63%, #F6F9DA 79.43%);
   position: relative;
+  overflow: hidden;
+  height: 0;
+  animation: expand 2s 1s forwards;
   .content {
     display: flex;
     align-items: center;
@@ -129,5 +132,17 @@
         right: 10px;
       }
     }
+  }
+}
+
+@keyframes expand {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 102px;
+  }
+  100% {
+    height: auto;
   }
 }
