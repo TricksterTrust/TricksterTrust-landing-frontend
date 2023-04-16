@@ -1,0 +1,36 @@
+.message {
+  padding: 5px;
+  border: 1px solid #F6F6F6;
+  border-radius: 5px;
+  background-color: #F4F4F4;
+  flex-direction: column;
+  display: inline-flex;
+  max-width: max-content;
+  min-width: 100px;
+  h6 {
+    display: inline-block;
+    font-weight: 600;
+    margin: 0 0 3px 0;
+  }
+  .messageBody {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    p {
+      display: inline-block;
+    }
+    span {
+      margin: 0 0 0 12px;
+      color: #595959;
+    }
+  }
+  &:nth-child(odd) {
+    background-color: #93D1F4;
+    margin: 0 0 0 auto;
+    .messageBody {
+      span {
+        color: #4B96C0;
+      }
+    }
+  }
+}
