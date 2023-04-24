@@ -3,22 +3,23 @@ import styles from "./Top.module.scss";
 import {Logo} from "../../../assets/Logo";
 import {Login} from "../../../assets/Login";
 import {Burger} from "../../../assets/Burger";
+import {NavLink} from "react-router-dom";
 
 const Top = () => {
 	return (
 		<div className={styles.top}>
 			<div className="container">
 				<div className={styles.content}>
-					<div className={styles.logo}>
+					<NavLink to="/" className={styles.logo}>
 						<Logo/>
 						<h4>TricksterTrust</h4>
-					</div>
+					</NavLink>
 					<nav>
 						<ul className={styles.list}>
-							<li><a href="" className={styles.link}>Частным клиентам</a></li>
-							<li><a href="" className={styles.link}>Самозанятым</a></li>
-							<li><a href="" className={styles.link}>Малому бизнесу и ИП</a></li>
-							<li><a href="" className={styles.link}>Корпорациям</a></li>
+							<li><NavLink to="" className={styles.link}>Частным клиентам</NavLink></li>
+							<li><NavLink to="" className={styles.link}>Самозанятым</NavLink></li>
+							<li><NavLink to="" className={styles.link}>Малому бизнесу и ИП</NavLink></li>
+							<li><NavLink to="" className={styles.link}>Корпорациям</NavLink></li>
 						</ul>
 					</nav>
 					<div className={styles.login}>

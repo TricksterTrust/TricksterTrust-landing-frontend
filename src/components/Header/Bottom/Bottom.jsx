@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./Bottom.module.scss"
 
 import {Headphones} from "../../../assets/Headphones";
+import {NavLink} from "react-router-dom";
 
 const Bottom = () => {
 	return (
@@ -10,12 +11,12 @@ const Bottom = () => {
 			<div className="container">
 				<nav className={styles.menu}>
 					<ul className={styles.list}>
-						<li><a href="" className={styles.link}>Карты</a></li>
-						<li><a href="" className={styles.link}>Вклады</a></li>
-						<li><a href="" className={styles.link}>Ипотека</a></li>
-						<li><a href="" className={styles.link}>Инвестиции</a></li>
-						<li><a href="" className={styles.link}>Курс валют</a></li>
-						<li><a href="" className={styles.link}>Премиум</a></li>
+						<li><NavLink to="/carts" className={styles.link}>Карты</NavLink></li>
+						<li><NavLink to="/deposits" className={styles.link}>Вклад</NavLink></li>
+						<li><NavLink to="" className={styles.link}>Ипотека</NavLink></li>
+						<li><NavLink to="" className={styles.link}>Инвестиции</NavLink></li>
+						<li><NavLink to="" className={styles.link}>Курс валют</NavLink></li>
+						<li><NavLink to="" className={styles.link}>Премиум</NavLink></li>
 					</ul>
 					<div className={styles.management}>
 						<div className={styles.btn}>Стать клиентом</div>
