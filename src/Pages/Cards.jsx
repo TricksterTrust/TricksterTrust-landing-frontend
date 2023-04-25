@@ -1,9 +1,9 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
 
-const Carts = () => {
+const Cards = () => {
 	return (
-		<div className="carts">
+		<main className="page cards">
 			<h3>Карты</h3>
 			<div className="items">
 				<NavLink to="/debit" className="item">
@@ -12,7 +12,7 @@ const Carts = () => {
 						<p>
 							Кэшбэк&nbsp;5% каждый месяц, за&nbsp;переводы с&nbsp;карты на&nbsp;картуTricksterTrust до&nbsp;50&nbsp;тыс ₽&nbsp;в&nbsp;месяц
 						</p>
-						<a href="" className="btn">Подробнее</a>
+						<div href="" className="btn">Подробнее</div>
 					</div>
 					<div className="image">
 						<img src="../img/assets/card-black.png" alt="дебетовая карта"/>
@@ -24,15 +24,15 @@ const Carts = () => {
 						<p>
 							Кешбэк 1&nbsp;000&nbsp;₽ и&nbsp;обслуживание 0&nbsp;₽
 						</p>
-						<a href="" className="btn">Подробнее</a>
+						<div href="" className="btn">Подробнее</div>
 					</div>
 					<div className="image">
 						<img src="../img/assets/card-white.png" alt="дебетовая карта"/>
 					</div>
 				</NavLink>
 			</div>
-		</div>
+		</main>
 	)
 }
 
-export default Carts;
+export default Cards;

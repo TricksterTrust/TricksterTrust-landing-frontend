@@ -1,10 +1,13 @@
 import React from "react";
+import Card from "../components/Card/Card";
 
-const Credit = () => {
+const Credit = ({card}) => {
 	return (
-		<div>
-			Кредитная карта
-		</div>
+		<main className="page">
+			<div className="container">
+				<Card card={card}/>
+			</div>
+		</main>
 	)
 }
 

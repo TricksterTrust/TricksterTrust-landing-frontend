@@ -1,0 +1,33 @@
+.advantages {
+  padding: 35px 0;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  h4 {
+    font-weight: 600;
+    font-size: 30px;
+    margin: 0 0 20px 0;
+  }
+  .items {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    .item {
+      max-width: 280px;
+      h5 {
+        font-weight: 600;
+        font-size: 22px;
+        margin: 0 0 10px 0;
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    h4 {
+      font-size: 25px;
+    }
+    .items {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
