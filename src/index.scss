@@ -192,6 +192,7 @@ code {
   line-height: 35px;
   padding: 0 10px;
   cursor: pointer;
+  user-select: none;
 }
 .deposits {
   p {
@@ -278,4 +279,12 @@ code {
       }
     }
   }
+}
+
+.pie {
+  position: absolute;
+  top: -50px;
+  right: -80px;
+  max-width: 200px;
+  margin: 0 auto 50px auto;
 }

@@ -3,7 +3,7 @@
   position: relative;
   overflow: hidden;
   height: 0;
-  animation: expand 2s 1s forwards;
+  animation: expandFull 2s 1s forwards;
   .content {
     display: flex;
     align-items: center;
@@ -77,6 +77,7 @@
     }
   }
   @media (max-width: 1160px) {
+    animation: expand1160 3.5s 1s forwards;
     .content {
       flex-direction: column;
       text-align: center;
@@ -94,6 +95,7 @@
     }
   }
   @media (max-width: 600px) {
+    animation: expand600 3s 1s forwards;
     .content {
       align-items: start;
       text-align: start;
@@ -122,6 +124,7 @@
     }
   }
   @media (max-width: 480px) {
+    animation: expand480 3s 1s forwards;
     .content {
       padding: 20px 0;
       h4 {
@@ -135,12 +138,48 @@
   }
 }
 
-@keyframes expand {
+@keyframes expandFull {
   0% {
     height: 0;
   }
   50% {
     height: 102px;
+    @media (max-width: 1160px) {
+
+    }
+  }
+  100% {
+    height: auto;
+  }
+}
+@keyframes expand1160 {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 238px;
+  }
+  100% {
+    height: auto;
+  }
+}
+@keyframes expand600 {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 220px;
+  }
+  100% {
+    height: auto;
+  }
+}
+@keyframes expand480 {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 200px;
   }
   100% {
     height: auto;

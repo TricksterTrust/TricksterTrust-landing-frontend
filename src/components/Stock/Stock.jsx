@@ -13,6 +13,7 @@ const Stock = ({setStockOpened}) => {
 	// объявляю глоб. дату конца акции
 	let endTime = 0;
 	
+	// обновление счётчика
 	function updateCounter() {
 		// текущая дата
 		const currentTime = new Date();
@@ -32,14 +33,30 @@ const Stock = ({setStockOpened}) => {
 		setSecondLeft(second.length === 2 ? second : "0" + second);
 	}
 	
+	// если в localstorage не закрыт, то получаю данные с бэка
 	useEffect(() => {
-		(async () => {
-			await axios.get('https://api.trickstertrust.ru/v1/promotion/', { params: { primary: true } })
-				.then(resp => setPromotion(resp.data))
-				.catch(error => console.log(error));
-		})()
+		// Получаем текущее время
+		let now = new Date().getTime();
+		// Получаем время истечения из local storage
+		let expirationTimeStock = Number(localStorage.getItem('expirationTimeStock'));
+		
+		if (now > expirationTimeStock) {
+			// если время истекло, то удалить из локал сторадж
+			localStorage.removeItem('expirationTimeStock');
+			// данные с бэка
+			(async () => {
+				await axios.get('https://api.trickstertrust.ru/v1/promotion/', { params: { primary: true } })
+					.then(resp => setPromotion(resp.data))
+					.catch(error => console.log(error));
+			})()
+		} else if (now < expirationTimeStock) {
+			// если не истекло, то не открывать
+			setStockOpened(false)
+		}
+		
 	}, [])
 	
+	// вызов обновление счётчика каждую секунду
 	useEffect(() => {
 		if (promotion) {
 			// конечная дата
@@ -47,6 +64,18 @@ const Stock = ({setStockOpened}) => {
 			setInterval(updateCounter, 1000)
 		}
 	}, [promotion])
+	
+	const onClickClose = () => {
+		// получаем текущую дату
+		let now = new Date().getTime();
+		// Устанавливаем время истечения на 5 дней вперед от текущего времени
+		let expirationTimeStock = now + (5 * 24 * 60 * 60 * 1000);
+		
+		// Преобразуем время истечения в строку и сохраняем его в local storage
+		localStorage.setItem('expirationTimeStock', expirationTimeStock.toString());
+		
+		setStockOpened(false)
+	}
 	
 	return (
 		<div className={styles.stock}>
@@ -80,7 +109,7 @@ const Stock = ({setStockOpened}) => {
 							</div>
 						</div>
 						<div className={styles.btnStock}>Оформить карту</div>
-						<div onClick={() => {setStockOpened(false)}} className={styles.close}>
+						<div onClick={onClickClose} className={styles.close}>
 							<Cross/>
 						</div>
 					</div>

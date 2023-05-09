@@ -1,7 +1,26 @@
-import React from "react"
+import React, {useState} from "react"
 import styles from "./Parameters.module.scss"
 
+const parameters = [
+	{quantity: 1, time: 'мес'},
+	{quantity: 3, time: 'мес'},
+	{quantity: 6, time: 'мес'},
+	{quantity: 1, time: 'год'},
+	{quantity: 2, time: 'года'},
+	{quantity: 3, time: 'года'}
+]
+
 const Parameters = () => {
+	const [parameter, setParameters] = useState({quantity: 3, time: 'мес'})
+	
+	const onClickTerm = (parameter) => {
+		setParameters(parameter)
+	}
+	
+	function declOfNum(number, words) {
+		return words[(number % 100 > 4 && number % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(number % 10 < 5) ? Math.abs(number) % 10 : 5]];
+	}
+	
 	return (
 		<section className={styles.parameters}>
 			<div className="container">
@@ -10,14 +29,20 @@ const Parameters = () => {
 						<div className="formContent">
 							<h3>Выберите параметры вклада</h3>
 							<div className={styles.term}>
-								<h4>3 месяца</h4>
+								<h4>{parameter.quantity} {parameter.time === 'мес' ?
+									declOfNum(parameter.quantity, ['месяц', 'месяца', 'месяцев'])
+									:
+									declOfNum(parameter.quantity, ['год', 'года', 'лет'])}
+								</h4>
 								<div className={styles.items}>
-									<span className="termItem">1 мес</span>
-									<span className="termItem">3 мес</span>
-									<span className="termItem">6 мес</span>
-									<span className="termItem">1 год</span>
-									<span className="termItem">2 года</span>
-									<span className="termItem">3 года</span>
+									{parameters.map((el, id) => (
+										<span style={parameter.time === el.time && parameter.quantity === el.quantity ? {backgroundColor: '#525970', color: '#fff'} : {}}
+										      key={id}
+										      onClick={() => onClickTerm(el)}
+										      className="termItem">
+											{`${el.quantity} ${el.time}`}
+										</span>
+									))}
 								</div>
 							</div>
 							<form action="">
